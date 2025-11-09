@@ -4,13 +4,12 @@ import "./index.css";
 import SearchWeather from "./SearchWeather";
 import reportWebVitals from "./reportWebVitals";
 
-import SearchEngine from "./SearchWeather";
-
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <h1>Weather App</h1>
     <SearchWeather />
+    <a href="https://github.com/mainlyti/weather-react">Github</a>
   </React.StrictMode>
 );
 
