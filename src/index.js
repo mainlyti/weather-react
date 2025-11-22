@@ -1,19 +1,20 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import SearchWeather from "./SearchWeather";
 import reportWebVitals from "./reportWebVitals";
 import "bootstrap/dist/css/bootstrap.css";
 
+import Weather from "./Weather";
+import "./Weather.css";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <h1>Weather App</h1>
-
-    <SearchWeather />
-    <a href="https://github.com/mainlyti/weather-react">Github</a>
-    <br />
-    <a href="https://reactweatherprojectsc.netlify.app/">Netlify</a>
+    <Weather />
+    <footer>
+      <a href="https://github.com/mainlyti/weather-react">Github</a>
+      <br />
+      <a href="https://reactweatherprojectsc.netlify.app/">Netlify</a>
+    </footer>
   </React.StrictMode>
 );
 
