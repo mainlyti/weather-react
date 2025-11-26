@@ -10,7 +10,7 @@ import "./Weather.css";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <Weather />
+    <Weather defaultCity="New York" />
     <footer>
       <a href="https://github.com/mainlyti/weather-react">Github</a>
       <br />

@@ -2,22 +2,27 @@ import React, { useState } from "react";
 import axios from "axios";
 import "./Weather.css";
 
-export default function Weather() {
-  const [ready, setReady] = useState(false);
-  const [weatherData, setWeatherData] = useState({});
+export default function Weather(props) {
+  const [weatherData, setWeatherData] = useState({ ready: false });
 
   function handleResponse(response) {
     console.log(response.data);
-
-    setReady(true);
+    setWeatherData({
+      ready: true,
+      temperature: response.data.temperature.current,
+      humidity: response.data.temperature.humidity,
+      wind: response.data.wind.speed,
+      description: response.data.condition.description,
+      icon: response.data.condition.icon_url,
+      city: response.data.city,
+    });
   }
 
   let apiKey = "5bfa080034fb64td6b864b3a813efo04";
-  let city = "New York";
-  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=imperial`;
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${props.defaultCity}&key=${apiKey}&units=imperial`;
   axios.get(apiUrl).then(handleResponse);
 
-  if (ready) {
+  if (weatherData.ready) {
     return (
       <div className="Weather">
         <form>
@@ -39,22 +44,21 @@ export default function Weather() {
             </div>
           </div>
         </form>
-        <h1>New York</h1>
+        <h1>{weatherData.city}</h1>
         <ul>
           <li>Saturday 4:44 PM</li>
-          <li>Cloudy</li>
+          <li className="text-capitalize">{weatherData.description}</li>
         </ul>
         <div className="row">
           <div className="col-6">
             <p>Img goes here</p>
-            <span className="temperature"></span>
+            <span className="temperature">{weatherData.temperature}</span>
             <span className="unit">°F</span>
           </div>
           <div className="col-6">
             <ul>
-              <li>Precipitation: 15%</li>
-              <li>Humidity: 72%</li>
-              <li>Wind: 3 mph</li>
+              <li>Humidity: {weatherData.humidity}</li>
+              <li>Wind: {weatherData.wind} mph</li>
             </ul>
           </div>
         </div>
