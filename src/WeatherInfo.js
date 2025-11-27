@@ -1,9 +1,13 @@
+import FormateDate from "./FormatDate";
+
 export default function WeatherInfo(props) {
   return (
     <div className="WeatherInfo">
       <h1>{props.data.city}</h1>
       <ul>
-        <li>Saturday 4:44 PM</li>
+        <li>
+          <FormateDate date={props.data.date} />
+        </li>
         <li className="text-capitalize">{props.data.description}</li>
       </ul>
       <div className="row">
