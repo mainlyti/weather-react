@@ -12,9 +12,9 @@ root.render(
   <React.StrictMode>
     <Weather defaultCity="New York" />
     <footer>
-      <a href="https://github.com/mainlyti/weather-react">Github</a>
-      <br />
-      <a href="https://reactweatherprojectsc.netlify.app/">Netlify</a>
+      Coded by Tianna Mendoza{" "}
+      <a href="https://github.com/mainlyti/weather-react">Github</a> and hosted
+      on <a href="https://reactweatherprojectsc.netlify.app/">Netlify</a>
     </footer>
   </React.StrictMode>
 );
